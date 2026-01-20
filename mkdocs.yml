@@ -69,3 +69,8 @@ nav:
       - เครื่องมือขั้นสูง: software_advanced_tools.md
   - มาตรฐาน:
       - มาตรฐานอุตสาหกรรม: industrial_standards.md
+  - รากฐานหุ่นยนต์ (Robotics Foundation):
+      - โปรโตคอลหุ่นยนต์: robotics_protocols.md
+      - พลังงานความละเอียดสูง: precision_power.md
+      - เซ็นเซอร์ IMU (Acc/Gyro): sensors_imu.md
+      - การขยายพอร์ต I2C Hub: comms_i2c_hubs.md
