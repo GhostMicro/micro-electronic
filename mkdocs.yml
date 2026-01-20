@@ -1,0 +1,71 @@
+site_name: พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - navigation.top
+    - navigation.footer
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - หน้าแรก: index.md
+  - พื้นฐาน:
+      - อุปกรณ์พื้นฐาน: basic_components.md
+      - ทฤษฎีไฟฟ้า: basic_theory.md
+      - คู่มือใช้งาน: practical_guide.md
+      - วงจรพื้นฐาน: basic_circuits.md
+      - ระบบป้องกัน: circuit_protection.md
+  - แหล่งจ่ายไฟ:
+      - ภาพรวม: power_sources.md
+      - Li-ion 18650: power_sources_li-ion.md
+      - Li-Po: power_sources_li-po.md
+      - BMS: power_sources_bms.md
+      - การดูแลรักษา: power_sources_maintenance.md
+  - วงจรและการต่อวงจร:
+      - อนุกรมและขนาน: circuit_series_parallel.md
+      - Pull-Up/Pull-Down: pull_up_pull_down.md
+      - Inverter/Converter: inverter_converter.md
+  - การสื่อสาร:
+      - โปรโตคอล: communication_protocols.md
+      - สัญญาณไร้สาย: wireless_communication.md
+      - GPS Modules: gps_modules.md
+  - ไมโครคอนโทรลเลอร์:
+      - ตระกูลชิป: microcontroller_chips.md
+      - การประยุกต์ใช้: microcontroller_applications.md
+      - DIY Modules: diy_modules.md
+  - Software:
+      - IDE: software_ide.md
+      - ออกแบบวงจร: software_hardware_design.md
+      - เครื่องมือขั้นสูง: software_advanced_tools.md
+  - มาตรฐาน:
+      - มาตรฐานอุตสาหกรรม: industrial_standards.md
