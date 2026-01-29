@@ -1,0 +1,3629 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../gps_modules/">
+      
+      
+        <link rel="next" href="../microcontroller_applications/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>ตระกูลชิป - พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microcontroller-atmega-esp-stm32" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" class="md-header__button md-logo" aria-label="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ตระกูลชิป
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  หน้าแรก
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../basic_components/" class="md-tabs__link">
+          
+  
+  
+  พื้นฐาน
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../power_sources/" class="md-tabs__link">
+          
+  
+  
+  แหล่งจ่ายไฟ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../circuit_series_parallel/" class="md-tabs__link">
+          
+  
+  
+  วงจรและการต่อวงจร
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../communication_protocols/" class="md-tabs__link">
+          
+  
+  
+  การสื่อสาร
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  ไมโครคอนโทรลเลอร์
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../software_ide/" class="md-tabs__link">
+          
+  
+  
+  Software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../industrial_standards/" class="md-tabs__link">
+          
+  
+  
+  มาตรฐาน
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../robotics_protocols/" class="md-tabs__link">
+          
+  
+  
+  รากฐานหุ่นยนต์ (Robotics Foundation)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" class="md-nav__button md-logo" aria-label="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    หน้าแรก
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    พื้นฐาน
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    พื้นฐาน
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    อุปกรณ์พื้นฐาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ทฤษฎีไฟฟ้า
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    คู่มือใช้งาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    วงจรพื้นฐาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuit_protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ระบบป้องกัน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    แหล่งจ่ายไฟ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    แหล่งจ่ายไฟ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ภาพรวม
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_li-ion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Li-ion 18650
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_li-po/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Li-Po
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_bms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_maintenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การดูแลรักษา
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    วงจรและการต่อวงจร
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    วงจรและการต่อวงจร
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuit_series_parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    อนุกรมและขนาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pull_up_pull_down/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pull-Up/Pull-Down
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inverter_converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inverter/Converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การสื่อสาร
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    การสื่อสาร
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication_protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    โปรโตคอล
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireless_communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    สัญญาณไร้สาย
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gps_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPS Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ไมโครคอนโทรลเลอร์
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ไมโครคอนโทรลเลอร์
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ตระกูลชิป
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ตระกูลชิป
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-atmega-atmelmicrochip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ตระกูล ATmega (Atmel/Microchip)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. ตระกูล ATmega (Atmel/Microchip)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atmega328p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATmega328P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATmega328P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmega2560" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATmega2560
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATmega2560">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmega32u4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATmega32U4
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATmega32U4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-esp-espressif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ตระกูล ESP (Espressif)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ตระกูล ESP (Espressif)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp8266" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP8266
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP8266">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-s2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32-S2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32-S2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-c3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32-C3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32-C3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-stm32-stmicroelectronics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ตระกูล STM32 (STMicroelectronics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. ตระกูล STM32 (STMicroelectronics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32f103c8t6-blue-pill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32F103C8T6 (Blue Pill)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32F103C8T6 (Blue Pill)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32f401ccu6-black-pill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32F401CCU6 (Black Pill)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32F401CCU6 (Black Pill)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32f407vgt6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32F407VGT6
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32F407VGT6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32h743" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32H743
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32H743">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตารางเปรียบเทียบตระกูลชิป
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        เคล็ดลับการเลือกชิป
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="เคล็ดลับการเลือกชิป">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ผู้เริ่มต้น
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-smart-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IoT / Smart Home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความเร็วสูง / อุตสาหกรรม
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAN Bus / รถยนต์
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO เยอะ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microcontroller_applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การประยุกต์ใช้
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diy_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIY Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_ide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_hardware_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ออกแบบวงจร
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_advanced_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    เครื่องมือขั้นสูง
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    มาตรฐาน
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    มาตรฐาน
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../industrial_standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    มาตรฐานอุตสาหกรรม
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    รากฐานหุ่นยนต์ (Robotics Foundation)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    รากฐานหุ่นยนต์ (Robotics Foundation)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics_protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    โปรโตคอลหุ่นยนต์
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precision_power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    พลังงานความละเอียดสูง
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensors_imu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    เซ็นเซอร์ IMU (Acc/Gyro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms_i2c_hubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การขยายพอร์ต I2C Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-atmega-atmelmicrochip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ตระกูล ATmega (Atmel/Microchip)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. ตระกูล ATmega (Atmel/Microchip)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atmega328p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATmega328P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATmega328P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmega2560" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATmega2560
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATmega2560">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmega32u4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ATmega32U4
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ATmega32U4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-esp-espressif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ตระกูล ESP (Espressif)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ตระกูล ESP (Espressif)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp8266" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP8266
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP8266">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-s2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32-S2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32-S2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-c3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32-C3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESP32-C3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-stm32-stmicroelectronics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ตระกูล STM32 (STMicroelectronics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. ตระกูล STM32 (STMicroelectronics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32f103c8t6-blue-pill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32F103C8T6 (Blue Pill)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32F103C8T6 (Blue Pill)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32f401ccu6-black-pill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32F401CCU6 (Black Pill)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32F401CCU6 (Black Pill)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32f407vgt6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32F407VGT6
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32F407VGT6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stm32h743" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        STM32H743
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32H743">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        คุณสมบัติ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความสามารถพิเศษ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        การใช้งาน
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ตารางเปรียบเทียบตระกูลชิป
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        เคล็ดลับการเลือกชิป
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="เคล็ดลับการเลือกชิป">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ผู้เริ่มต้น
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-smart-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IoT / Smart Home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ความเร็วสูง / อุตสาหกรรม
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAN Bus / รถยนต์
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO เยอะ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="microcontroller-atmega-esp-stm32">ตระกูลชิป Microcontroller: ATmega, ESP, STM32</h1>
+<p>คู่มือเปรียบเทียบชิปไมโครคอนโทรลเลอร์ยอดนิยม พร้อมความสามารถและการใช้งาน</p>
+<hr />
+<h2 id="1-atmega-atmelmicrochip"><strong>1. ตระกูล ATmega (Atmel/Microchip)</strong></h2>
+<h3 id="atmega328p"><strong>ATmega328P</strong></h3>
+<h4 id="_1"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> 8-bit AVR</li>
+<li><strong>ความเร็ว:</strong> 16 MHz</li>
+<li><strong>Flash:</strong> 32 KB</li>
+<li><strong>RAM:</strong> 2 KB</li>
+<li><strong>EEPROM:</strong> 1 KB</li>
+<li><strong>GPIO:</strong> 23 ขา</li>
+<li><strong>ADC:</strong> 6 ช่อง (10-bit)</li>
+<li><strong>PWM:</strong> 6 ช่อง</li>
+<li><strong>แรงดัน:</strong> 1.8-5.5V</li>
+</ul>
+<h4 id="_2"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li>ประหยัดพลังงาน (Sleep Mode)</li>
+<li>มี Watchdog Timer</li>
+<li>มี Brown-out Detection</li>
+</ul>
+<h4 id="_3"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>Arduino Uno, Nano:</strong> โปรเจกต์ทั่วไป</li>
+<li><strong>ระบบควบคุมแสงไฟ:</strong> เปิด-ปิดไฟอัตโนมัติ</li>
+<li><strong>เซนเซอร์อุณหภูมิ:</strong> DHT22, DS18B20</li>
+<li><strong>Motor Controller:</strong> ควบคุมมอเตอร์ DC</li>
+</ul>
+<hr />
+<h3 id="atmega2560"><strong>ATmega2560</strong></h3>
+<h4 id="_4"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>ความเร็ว:</strong> 16 MHz</li>
+<li><strong>Flash:</strong> 256 KB</li>
+<li><strong>RAM:</strong> 8 KB</li>
+<li><strong>EEPROM:</strong> 4 KB</li>
+<li><strong>GPIO:</strong> 86 ขา</li>
+<li><strong>ADC:</strong> 16 ช่อง (10-bit)</li>
+<li><strong>PWM:</strong> 15 ช่อง</li>
+<li><strong>UART:</strong> 4 พอร์ต</li>
+</ul>
+<h4 id="_5"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li>GPIO เยอะมาก (86 ขา)</li>
+<li>UART หลายพอร์ต</li>
+<li>Memory เยอะกว่า 328P</li>
+</ul>
+<h4 id="_6"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>Arduino Mega:</strong> โปรเจกต์ใหญ่</li>
+<li><strong>3D Printer:</strong> RAMPS 1.4</li>
+<li><strong>CNC Machine:</strong> ควบคุม Stepper Motor</li>
+<li><strong>ระบบ Home Automation:</strong> ควบคุมหลายอุปกรณ์</li>
+</ul>
+<hr />
+<h3 id="atmega32u4"><strong>ATmega32U4</strong></h3>
+<h4 id="_7"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>ความเร็ว:</strong> 16 MHz</li>
+<li><strong>Flash:</strong> 32 KB</li>
+<li><strong>RAM:</strong> 2.5 KB</li>
+<li><strong>GPIO:</strong> 26 ขา</li>
+<li><strong>USB:</strong> Native USB (HID)</li>
+</ul>
+<h4 id="_8"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>USB ในตัว</strong> (ไม่ต้องใช้ชิปแปลง)</li>
+<li>ทำ USB Keyboard/Mouse ได้</li>
+</ul>
+<h4 id="_9"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>Arduino Leonardo, Pro Micro:</strong> USB Projects</li>
+<li><strong>Custom Keyboard:</strong> DIY Mechanical Keyboard</li>
+<li><strong>USB Game Controller:</strong> Joystick, Racing Wheel</li>
+<li><strong>USB HID Device:</strong> Barcode Scanner</li>
+</ul>
+<hr />
+<h2 id="2-esp-espressif"><strong>2. ตระกูล ESP (Espressif)</strong></h2>
+<h3 id="esp8266"><strong>ESP8266</strong></h3>
+<h4 id="_10"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> 32-bit Xtensa</li>
+<li><strong>ความเร็ว:</strong> 80/160 MHz</li>
+<li><strong>Flash:</strong> 512 KB - 4 MB (External)</li>
+<li><strong>RAM:</strong> 80 KB</li>
+<li><strong>GPIO:</strong> 17 ขา</li>
+<li><strong>ADC:</strong> 1 ช่อง (10-bit)</li>
+<li><strong>WiFi:</strong> 802.11 b/g/n (2.4 GHz)</li>
+</ul>
+<h4 id="_11"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>WiFi ในตัว</strong></li>
+<li>ราคาถูกมาก (~30 บาท)</li>
+<li>Deep Sleep (20 µA)</li>
+</ul>
+<h4 id="_12"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>NodeMCU, Wemos D1 Mini:</strong> IoT Projects</li>
+<li><strong>Smart Plug:</strong> เปิด-ปิดปลั๊กผ่าน WiFi</li>
+<li><strong>Weather Station:</strong> ส่งข้อมูลอากาศขึ้น Cloud</li>
+<li><strong>WiFi Relay:</strong> ควบคุม Relay ผ่าน WiFi</li>
+</ul>
+<hr />
+<h3 id="esp32"><strong>ESP32</strong></h3>
+<h4 id="_13"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> 32-bit Xtensa Dual-Core</li>
+<li><strong>ความเร็ว:</strong> 240 MHz (2 cores)</li>
+<li><strong>Flash:</strong> 4 MB - 16 MB (External)</li>
+<li><strong>RAM:</strong> 520 KB</li>
+<li><strong>GPIO:</strong> 34 ขา</li>
+<li><strong>ADC:</strong> 18 ช่อง (12-bit)</li>
+<li><strong>DAC:</strong> 2 ช่อง</li>
+<li><strong>WiFi:</strong> 802.11 b/g/n (2.4 GHz)</li>
+<li><strong>Bluetooth:</strong> Classic + BLE 4.2</li>
+</ul>
+<h4 id="_14"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>Dual-Core</strong> (ทำงาน 2 อย่างพร้อมกัน)</li>
+<li><strong>WiFi + Bluetooth</strong></li>
+<li><strong>Touch Sensor:</strong> 10 ขา</li>
+<li><strong>Hall Sensor:</strong> ตรวจจับแม่เหล็ก</li>
+<li>Deep Sleep (10 µA)</li>
+</ul>
+<h4 id="_15"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>ESP32 DevKit:</strong> IoT, Smart Home</li>
+<li><strong>ESP32-CAM:</strong> กล้องวงจรปิด WiFi</li>
+<li><strong>Smart Speaker:</strong> Voice Control</li>
+<li><strong>Bluetooth Audio:</strong> ลำโพง Bluetooth</li>
+<li><strong>GPS Tracker:</strong> WiFi + GPS</li>
+<li><strong>Drone Controller:</strong> รับสัญญาณ I-BUS/S-BUS</li>
+</ul>
+<hr />
+<h3 id="esp32-s2"><strong>ESP32-S2</strong></h3>
+<h4 id="_16"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>Core:</strong> Single-Core (240 MHz)</li>
+<li><strong>WiFi:</strong> 802.11 b/g/n</li>
+<li><strong>Bluetooth:</strong> ไม่มี</li>
+<li><strong>USB:</strong> Native USB (OTG)</li>
+<li><strong>GPIO:</strong> 43 ขา</li>
+</ul>
+<h4 id="_17"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>USB ในตัว</strong> (ไม่ต้องใช้ชิปแปลง)</li>
+<li>GPIO เยอะกว่า ESP32</li>
+</ul>
+<h4 id="_18"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>USB Device:</strong> Keyboard, Mouse</li>
+<li><strong>IoT ที่ไม่ต้องการ Bluetooth</strong></li>
+</ul>
+<hr />
+<h3 id="esp32-c3"><strong>ESP32-C3</strong></h3>
+<h4 id="_19"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> 32-bit RISC-V</li>
+<li><strong>ความเร็ว:</strong> 160 MHz</li>
+<li><strong>WiFi + BLE 5.0</strong></li>
+<li><strong>ราคา:</strong> ถูกกว่า ESP32</li>
+</ul>
+<h4 id="_20"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>RISC-V</strong> (ไม่ใช่ Xtensa)</li>
+<li><strong>BLE 5.0</strong> (ใหม่กว่า ESP32)</li>
+<li>ราคาถูก</li>
+</ul>
+<h4 id="_21"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>IoT ราคาถูก</strong></li>
+<li><strong>BLE Beacon</strong></li>
+<li><strong>Smart Sensor</strong></li>
+</ul>
+<hr />
+<h2 id="3-stm32-stmicroelectronics"><strong>3. ตระกูล STM32 (STMicroelectronics)</strong></h2>
+<h3 id="stm32f103c8t6-blue-pill"><strong>STM32F103C8T6 (Blue Pill)</strong></h3>
+<h4 id="_22"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> 32-bit ARM Cortex-M3</li>
+<li><strong>ความเร็ว:</strong> 72 MHz</li>
+<li><strong>Flash:</strong> 64 KB (บางรุ่น 128 KB)</li>
+<li><strong>RAM:</strong> 20 KB</li>
+<li><strong>GPIO:</strong> 37 ขา</li>
+<li><strong>ADC:</strong> 10 ช่อง (12-bit)</li>
+<li><strong>Timer:</strong> 7 ตัว</li>
+<li><strong>UART:</strong> 3 พอร์ต</li>
+<li><strong>SPI:</strong> 2 พอร์ต</li>
+<li><strong>I2C:</strong> 2 พอร์ต</li>
+<li><strong>CAN:</strong> 1 พอร์ต</li>
+</ul>
+<h4 id="_23"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>CAN Bus</strong> (ใช้ในรถยนต์)</li>
+<li><strong>DMA</strong> (Direct Memory Access)</li>
+<li>ราคาถูก (~50 บาท)</li>
+</ul>
+<h4 id="_24"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>Blue Pill Board:</strong> โปรเจกต์ทั่วไป</li>
+<li><strong>CAN Bus Reader:</strong> อ่านข้อมูลรถยนต์ (OBD-II)</li>
+<li><strong>Drone Flight Controller:</strong> ควบคุมโดรน</li>
+<li><strong>Fast Data Logger:</strong> บันทึกข้อมูลความเร็วสูง</li>
+</ul>
+<hr />
+<h3 id="stm32f401ccu6-black-pill"><strong>STM32F401CCU6 (Black Pill)</strong></h3>
+<h4 id="_25"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> ARM Cortex-M4</li>
+<li><strong>ความเร็ว:</strong> 84 MHz</li>
+<li><strong>Flash:</strong> 256 KB</li>
+<li><strong>RAM:</strong> 64 KB</li>
+<li><strong>FPU:</strong> มี (Floating Point Unit)</li>
+</ul>
+<h4 id="_26"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>FPU</strong> (คำนวณทศนิยมเร็ว)</li>
+<li>Memory เยอะกว่า Blue Pill</li>
+</ul>
+<h4 id="_27"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>DSP (Digital Signal Processing)</strong></li>
+<li><strong>Audio Processing</strong></li>
+<li><strong>Fast Control System</strong></li>
+</ul>
+<hr />
+<h3 id="stm32f407vgt6"><strong>STM32F407VGT6</strong></h3>
+<h4 id="_28"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>ความเร็ว:</strong> 168 MHz</li>
+<li><strong>Flash:</strong> 1 MB</li>
+<li><strong>RAM:</strong> 192 KB</li>
+<li><strong>GPIO:</strong> 82 ขา</li>
+<li><strong>ADC:</strong> 16 ช่อง (12-bit)</li>
+<li><strong>DAC:</strong> 2 ช่อง</li>
+<li><strong>FPU:</strong> มี</li>
+</ul>
+<h4 id="_29"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>ความเร็วสูงมาก</strong> (168 MHz)</li>
+<li>Memory เยอะมาก</li>
+<li>GPIO เยอะ</li>
+</ul>
+<h4 id="_30"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>Industrial Control</strong></li>
+<li><strong>Motor Control (FOC)</strong></li>
+<li><strong>High-Speed Data Acquisition</strong></li>
+<li><strong>Audio/Video Processing</strong></li>
+</ul>
+<hr />
+<h3 id="stm32h743"><strong>STM32H743</strong></h3>
+<h4 id="_31"><strong>คุณสมบัติ</strong></h4>
+<ul>
+<li><strong>สถาปัตยกรรม:</strong> ARM Cortex-M7</li>
+<li><strong>ความเร็ว:</strong> 480 MHz</li>
+<li><strong>Flash:</strong> 2 MB</li>
+<li><strong>RAM:</strong> 1 MB</li>
+<li><strong>FPU + DSP</strong></li>
+</ul>
+<h4 id="_32"><strong>ความสามารถพิเศษ</strong></h4>
+<ul>
+<li><strong>เร็วที่สุดใน STM32</strong></li>
+<li>Memory มหาศาล</li>
+</ul>
+<h4 id="_33"><strong>การใช้งาน</strong></h4>
+<ul>
+<li><strong>High-Performance Computing</strong></li>
+<li><strong>AI/ML on Edge</strong></li>
+<li><strong>Advanced Motor Control</strong></li>
+</ul>
+<hr />
+<h2 id="_34"><strong>ตารางเปรียบเทียบตระกูลชิป</strong></h2>
+<table>
+<thead>
+<tr>
+<th>ชิป</th>
+<th>สถาปัตยกรรม</th>
+<th>ความเร็ว</th>
+<th>RAM</th>
+<th>WiFi/BT</th>
+<th>ราคา</th>
+<th>เหมาะกับ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ATmega328P</strong></td>
+<td>8-bit AVR</td>
+<td>16 MHz</td>
+<td>2 KB</td>
+<td>ไม่มี</td>
+<td>~30฿</td>
+<td>ผู้เริ่มต้น</td>
+</tr>
+<tr>
+<td><strong>ATmega2560</strong></td>
+<td>8-bit AVR</td>
+<td>16 MHz</td>
+<td>8 KB</td>
+<td>ไม่มี</td>
+<td>~150฿</td>
+<td>GPIO เยอะ</td>
+</tr>
+<tr>
+<td><strong>ESP8266</strong></td>
+<td>32-bit</td>
+<td>160 MHz</td>
+<td>80 KB</td>
+<td>WiFi</td>
+<td>~30฿</td>
+<td>IoT ถูก</td>
+</tr>
+<tr>
+<td><strong>ESP32</strong></td>
+<td>32-bit Dual</td>
+<td>240 MHz</td>
+<td>520 KB</td>
+<td>WiFi+BT</td>
+<td>~100฿</td>
+<td>IoT ครบ</td>
+</tr>
+<tr>
+<td><strong>STM32F103</strong></td>
+<td>ARM M3</td>
+<td>72 MHz</td>
+<td>20 KB</td>
+<td>ไม่มี</td>
+<td>~50฿</td>
+<td>CAN Bus</td>
+</tr>
+<tr>
+<td><strong>STM32F407</strong></td>
+<td>ARM M4</td>
+<td>168 MHz</td>
+<td>192 KB</td>
+<td>ไม่มี</td>
+<td>~300฿</td>
+<td>อุตสาหกรรม</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_35"><strong>เคล็ดลับการเลือกชิป</strong></h2>
+<h3 id="_36"><strong>ผู้เริ่มต้น</strong></h3>
+<ul>
+<li><strong>ATmega328P</strong> (Arduino Uno) - ง่ายที่สุด</li>
+</ul>
+<h3 id="iot-smart-home"><strong>IoT / Smart Home</strong></h3>
+<ul>
+<li><strong>ESP32</strong> - WiFi + Bluetooth ครบ</li>
+<li><strong>ESP8266</strong> - ถูกกว่า แต่ไม่มี Bluetooth</li>
+</ul>
+<h3 id="_37"><strong>ความเร็วสูง / อุตสาหกรรม</strong></h3>
+<ul>
+<li><strong>STM32F407</strong> - เร็ว มี FPU</li>
+<li><strong>STM32H743</strong> - เร็วที่สุด</li>
+</ul>
+<h3 id="can-bus"><strong>CAN Bus / รถยนต์</strong></h3>
+<ul>
+<li><strong>STM32F103</strong> - มี CAN Bus ในตัว</li>
+</ul>
+<h3 id="gpio"><strong>GPIO เยอะ</strong></h3>
+<ul>
+<li><strong>ATmega2560</strong> (86 ขา)</li>
+<li><strong>STM32F407</strong> (82 ขา)</li>
+</ul>
+<hr />
+<blockquote>
+<p>[!TIP]
+<strong>คำแนะนำ:</strong> เริ่มจาก ATmega328P (Arduino) เพื่อเรียนรู้ จากนั้นเปลี่ยนไป ESP32 เมื่อต้องการ WiFi หรือ STM32 เมื่อต้องการความเร็วสูง</p>
+</blockquote>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../gps_modules/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GPS Modules">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                GPS Modules
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../microcontroller_applications/" class="md-footer__link md-footer__link--next" aria-label="Next: การประยุกต์ใช้">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                การประยุกต์ใช้
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2151 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../power_sources_li-ion/">
+      
+      
+        <link rel="next" href="../power_sources_bms/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Li-Po - พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#li-po-lithium-polymer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" class="md-header__button md-logo" aria-label="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Li-Po
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  หน้าแรก
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../basic_components/" class="md-tabs__link">
+          
+  
+  
+  พื้นฐาน
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../power_sources/" class="md-tabs__link">
+          
+  
+  
+  แหล่งจ่ายไฟ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../circuit_series_parallel/" class="md-tabs__link">
+          
+  
+  
+  วงจรและการต่อวงจร
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../communication_protocols/" class="md-tabs__link">
+          
+  
+  
+  การสื่อสาร
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../microcontroller_chips/" class="md-tabs__link">
+          
+  
+  
+  ไมโครคอนโทรลเลอร์
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../software_ide/" class="md-tabs__link">
+          
+  
+  
+  Software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../industrial_standards/" class="md-tabs__link">
+          
+  
+  
+  มาตรฐาน
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../robotics_protocols/" class="md-tabs__link">
+          
+  
+  
+  รากฐานหุ่นยนต์ (Robotics Foundation)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" class="md-nav__button md-logo" aria-label="พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    พื้นฐานอิเล็กทรอนิกส์ (Electronics Basics)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    หน้าแรก
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    พื้นฐาน
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    พื้นฐาน
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    อุปกรณ์พื้นฐาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ทฤษฎีไฟฟ้า
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    คู่มือใช้งาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    วงจรพื้นฐาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuit_protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ระบบป้องกัน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    แหล่งจ่ายไฟ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    แหล่งจ่ายไฟ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ภาพรวม
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_li-ion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Li-ion 18650
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Li-Po
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Li-Po
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ข้อควรระวังด้านความปลอดภัย (ระดับวิกฤต)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-5-li-po-diy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 5 ปัญหาที่พบบ่อยใน Li-Po DIY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-diy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. แนวทางแก้ไขและเทคนิคการทำ DIY ให้รอด
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. แนวทางแก้ไขและเทคนิคการทำ DIY ให้รอด">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-cell-1s-37v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. กลุ่มชาร์จก้อนเดียว (1 Cell / 1S - 3.7V)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-multi-cell-2s-3s-4s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. กลุ่มชาร์จหลายก้อนอนุกรม (Multi-Cell / 2S, 3S, 4S)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-solar-charger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. กลุ่มชาร์จจากโซล่าเซลล์ (Solar Charger)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#li-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        สรุปการเลือกซื้อบอร์ดชาร์จตามขนาดแบต Li-Po
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_bms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power_sources_maintenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การดูแลรักษา
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    วงจรและการต่อวงจร
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    วงจรและการต่อวงจร
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../circuit_series_parallel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    อนุกรมและขนาน
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pull_up_pull_down/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pull-Up/Pull-Down
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inverter_converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inverter/Converter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การสื่อสาร
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    การสื่อสาร
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication_protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    โปรโตคอล
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireless_communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    สัญญาณไร้สาย
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gps_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPS Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ไมโครคอนโทรลเลอร์
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ไมโครคอนโทรลเลอร์
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microcontroller_chips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ตระกูลชิป
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microcontroller_applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การประยุกต์ใช้
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diy_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DIY Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_ide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_hardware_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ออกแบบวงจร
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software_advanced_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    เครื่องมือขั้นสูง
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    มาตรฐาน
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    มาตรฐาน
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../industrial_standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    มาตรฐานอุตสาหกรรม
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    รากฐานหุ่นยนต์ (Robotics Foundation)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    รากฐานหุ่นยนต์ (Robotics Foundation)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../robotics_protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    โปรโตคอลหุ่นยนต์
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../precision_power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    พลังงานความละเอียดสูง
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sensors_imu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    เซ็นเซอร์ IMU (Acc/Gyro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms_i2c_hubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    การขยายพอร์ต I2C Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ข้อควรระวังด้านความปลอดภัย (ระดับวิกฤต)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-5-li-po-diy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 5 ปัญหาที่พบบ่อยใน Li-Po DIY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-diy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. แนวทางแก้ไขและเทคนิคการทำ DIY ให้รอด
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. แนวทางแก้ไขและเทคนิคการทำ DIY ให้รอด">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-cell-1s-37v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. กลุ่มชาร์จก้อนเดียว (1 Cell / 1S - 3.7V)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-multi-cell-2s-3s-4s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. กลุ่มชาร์จหลายก้อนอนุกรม (Multi-Cell / 2S, 3S, 4S)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-solar-charger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. กลุ่มชาร์จจากโซล่าเซลล์ (Solar Charger)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#li-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        สรุปการเลือกซื้อบอร์ดชาร์จตามขนาดแบต Li-Po
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="li-po-lithium-polymer"><strong>แบต Li-Po (Lithium Polymer)</strong></h1>
+<p><strong>สิ่งที่ควรรู้และปัญหายอดฮิต</strong> สำหรับการทำแบต Li-Po DIY :</p>
+<hr />
+<h2 id="1"><strong>1. ข้อควรระวังด้านความปลอดภัย (ระดับวิกฤต)</strong></h2>
+<ul>
+<li><strong>ห้ามลัดวงจรเด็ดขาด:</strong> แบต Li-Po จ่ายกระแสได้สูงมาก หากขั้วสัมผัสกันเพียงวินาทีเดียว อาจเกิดประกายไฟรุนแรงหรือระเบิดได้</li>
+<li><strong>การบวม (Swelling):</strong> เกิดจากการเก็บไฟเต็มไว้นานเกินไป หรือใช้งานจนแรงดันต่ำเกิน ก๊าซที่สะสมภายในคือสัญญาณอันตราย <strong>ถ้าบวมแล้วห้ามชาร์จต่อ</strong> ให้แยกทิ้งทันที</li>
+<li><strong>ความร้อนคือศัตรู:</strong> หากอุณหภูมิสูงเกิน 60°C แบตจะเริ่มเสียหาย และอาจเกิดภาวะ <strong>Thermal Runaway</strong> (ไฟลุกติดกันเองจนดับยาก)</li>
+</ul>
+<h2 id="2-5-li-po-diy"><strong>2. 5 ปัญหาที่พบบ่อยใน Li-Po DIY</strong></h2>
+<ul>
+<li><strong>แรงดันตกถาวร (Over-discharge):</strong> หากใช้ไฟจนแรงดันต่ำกว่า <strong>3.0V ต่อเซลล์</strong> แบตจะเสียทันที ชาร์จไม่เข้าอีก หรือชาร์จเข้าแต่เสี่ยงระเบิด</li>
+<li><strong>เซลล์ไม่บาลานซ์:</strong> เนื่องจาก Li-Po มีความไวสูง หากแรงดันแต่ละเซลล์ห่างกันเกิน 0.05V จะทำให้บางเซลล์ถูกชาร์จเกิน (Overcharge) จนไหม้ได้</li>
+<li><strong>ความเสียหายจากการประกอบ:</strong> แผ่นฟอยล์หุ้ม Li-Po นิ่มและบางมาก หากถูกของแหลมทิ่ม หรือใช้หัวแร้งแช่ที่ขั้วนานเกินไปขณะบัดกรี ความร้อนจะส่งไปทำลายเคมีภายใน</li>
+<li><strong>ชาร์จผิดประเภท:</strong> ห้ามใช้เครื่องชาร์จแบตชนิดอื่น (เช่น NiMH/Pb) ต้องใช้เครื่องชาร์จเฉพาะสำหรับ Li-Po ที่มีสาย <strong>Balance Charge</strong> เท่านั้น</li>
+<li><strong>การเก็บรักษา (Storage):</strong> หากชาร์จเต็ม 100% แล้วทิ้งไว้เกิน 2-3 วัน แบตจะเริ่มบวมและเสื่อมสภาพ</li>
+</ul>
+<h2 id="3-diy"><strong>3. แนวทางแก้ไขและเทคนิคการทำ DIY ให้รอด</strong></h2>
+<ul>
+<li><strong>ทำ Storage Charge:</strong> หากไม่ได้ใช้งานเกิน 2 วัน ให้ชาร์จหรือคายไฟให้อยู่ที่ <strong>3.80V - 3.85V ต่อเซลล์</strong> เสมอ</li>
+<li><strong>ใช้ถุงกันไฟ (LiPo Safe Bag):</strong> ทุกครั้งที่ชาร์จหรือเก็บแบต ควรใส่ไว้ในถุงทนไฟเพื่อลดความเสียหายหากเกิดเหตุไม่คาดฝัน</li>
+<li><strong>ติดตัววัดแรงดัน (Lipo Alarm):</strong> ในการใช้งาน DIY ควรติดตัว Buzzer แจ้งเตือนเมื่อแรงดันต่ำกว่า 3.5V เพื่อป้องกันแบตพัง</li>
+<li><strong>เลือกสายไฟที่รับกระแสได้จริง:</strong> ใช้สายไฟซิลิโคน (Silicone Wire) ที่ทนความร้อนสูงและนำไฟฟ้าได้ดี</li>
+</ul>
+<hr />
+<p><strong>สรุป:</strong> ถ้าคุณเน้นความเบาและแรง Li-Po คือคำตอบ แต่ถ้าเน้นความปลอดภัยและใช้งานยาวนานในบ้าน LiFePO4 ดีกว่ามากครับ</p>
+<hr />
+<p>สำหรับแบตเตอรี่ <strong>Li-Po (Lithium Polymer)</strong> บอร์ดชาร์จที่ใช้ในท้องตลาดส่วนใหญ่จะใช้ "พื้นฐานเดียวกับ Li-ion" ครับ เพราะทั้งคู่มีแรงดันชาร์จเต็มที่ <strong>4.2V</strong> เท่ากัน แต่บอร์ดสำหรับ Li-Po มักจะเน้นเรื่องขนาดที่เล็ก (Compact) หรือการรองรับกระแสที่สูงกว่าในบางงาน เช่น โดรน</p>
+<p>นี่คือสรุปบอร์ดชาร์จ Li-Po ที่มีขายและชิปที่ใช้ครับ:</p>
+<hr />
+<h3 id="1-1-cell-1s-37v"><strong>1. กลุ่มชาร์จก้อนเดียว (1 Cell / 1S - 3.7V)</strong></h3>
+<p>เป็นกลุ่มที่ใช้ชิปเหมือนกับ 18650 แทบจะ 100% เพราะแรงดันเคมีเหมือนกัน:</p>
+<ul>
+<li><strong>TP4056 (ยอดนิยมที่สุด):</strong> ใช้ชาร์จ Li-Po ได้ดีมาก มักจะมาในบอร์ดที่มีช่อง Micro-USB หรือ USB-C</li>
+<li><strong>ชิปที่ใช้:</strong> <strong>TP4056</strong> (ชาร์จ) + <strong>DW01A</strong> (ป้องกัน) + <strong>8205A</strong> (มอสเฟตควบคุมไฟ)</li>
+<li><strong>ข้อควรระวัง:</strong> กระแสชาร์จเริ่มต้นคือ 1A หากใช้กับแบต Li-Po ก้อนเล็กมากๆ (เช่น แบตโดรนจิ๋ว 100-200mAh) แบตอาจร้อนจนบวมได้ เพราะกระแสชาร์จสูงเกินไป (ควรเปลี่ยน Resistor บนบอร์ดเพื่อลดกระแส)</li>
+<li><strong>MCP73831 / MCP73832:</strong></li>
+<li><strong>ชิปที่ใช้:</strong> <strong>MCP73831</strong> จาก Microchip</li>
+<li><strong>ลักษณะ:</strong> มักอยู่ในบอร์ดของ Adafruit หรือ SparkFun บอร์ดจะมีขนาดเล็กจิ๋วมาก</li>
+<li><strong>จุดเด่น:</strong> มีความเสถียรสูงมาก กระแสชาร์จมักตั้งไว้ที่ 100mA หรือ 500mA ซึ่งปลอดภัยสำหรับ Li-Po ก้อนเล็กๆ</li>
+<li><strong>IP2312:</strong></li>
+<li><strong>ชิปที่ใช้:</strong> <strong>IP2312</strong></li>
+<li><strong>จุดเด่น:</strong> ชาร์จเร็ว (Fast Charge) ได้ถึง <strong>3A</strong> เหมาะกับ Li-Po ก้อนใหญ่ที่ต้องการชาร์จไว</li>
+</ul>
+<hr />
+<h3 id="2-multi-cell-2s-3s-4s"><strong>2. กลุ่มชาร์จหลายก้อนอนุกรม (Multi-Cell / 2S, 3S, 4S)</strong></h3>
+<p>Li-Po มักนิยมใช้แบบอนุกรม (เช่น 7.4V หรือ 11.1V) บอร์ดชาร์จกลุ่มนี้จึงต้องซับซ้อนขึ้น:</p>
+<ul>
+<li><strong>บอร์ดชาร์จแบบ Step-Up (ชาร์จผ่าน USB 5V):</strong></li>
+<li><strong>ชิปที่ใช้:</strong> <strong>ถอดรหัสผ่านชิปตระกูล IP หรือ CN</strong></li>
+<li><strong>หน้าที่:</strong> แปลงไฟจาก USB 5V ขึ้นไปเป็น 8.4V (สำหรับ 2S) หรือ 12.6V (สำหรับ 3S)</li>
+<li><strong>ความเสี่ยง:</strong> บอร์ดพวกนี้มักไม่มีระบบ "Balance" (ชาร์จให้ทุกลูกเท่ากัน) ถ้าใช้ไปนานๆ เซลล์อาจจะไม่เท่ากันจนแบตพัง</li>
+<li><strong>เครื่องชาร์จแบบ Balance Charger (เช่น IMAX B6, B3):</strong></li>
+<li><strong>ชิปที่ใช้:</strong> มักใช้ <strong>Atmel (AVR)</strong> หรือ <strong>STM32</strong> เป็นสมองกลควบคุม</li>
+<li><strong>ลักษณะ:</strong> ไม่ใช่แค่บอร์ดจิ๋ว แต่เป็นเครื่องที่มีหน้าจอหรือไฟ LED แยกเซลล์</li>
+<li><strong>จุดเด่น:</strong> ชาร์จผ่านสาย Balance โดยเฉพาะ ทำให้แบต Li-Po ปลอดภัยที่สุดและอายุยืนที่สุด</li>
+</ul>
+<hr />
+<h3 id="3-solar-charger"><strong>3. กลุ่มชาร์จจากโซล่าเซลล์ (Solar Charger)</strong></h3>
+<ul>
+<li><strong>CN3065:</strong></li>
+<li><strong>ชิปที่ใช้:</strong> <strong>CN3065</strong></li>
+<li><strong>จุดเด่น:</strong> รับไฟจากแผงโซล่าเซลล์ (4.4V - 6V) มาชาร์จ Li-Po ได้โดยตรง ชิปตัวนี้ฉลาดพอที่จะดึงไฟที่แกว่งไปมามาชาร์จได้อย่างมีประสิทธิภาพ</li>
+</ul>
+<hr />
+<h3 id="li-po"><strong>สรุปการเลือกซื้อบอร์ดชาร์จตามขนาดแบต Li-Po</strong></h3>
+<table>
+<thead>
+<tr>
+<th>ขนาดแบต Li-Po</th>
+<th>บอร์ด/ชิปที่แนะนำ</th>
+<th>เหตุผล</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ก้อนจิ๋ว (&lt; 500mAh)</strong></td>
+<td><strong>MCP73831</strong></td>
+<td>กระแสชาร์จต่ำ แบตไม่บวม</td>
+</tr>
+<tr>
+<td><strong>ก้อนกลาง (500-2000mAh)</strong></td>
+<td><strong>TP4056</strong></td>
+<td>ราคาถูก หาซื้อง่าย ปลอดภัยพอตัว</td>
+</tr>
+<tr>
+<td><strong>ก้อนใหญ่ (&gt; 3000mAh)</strong></td>
+<td><strong>IP2312</strong></td>
+<td>ชาร์จไว ไม่ต้องรอนาน</td>
+</tr>
+<tr>
+<td><strong>แบบอนุกรม (2S, 3S)</strong></td>
+<td><strong>IMAX B3 / B6</strong></td>
+<td>ต้องชาร์จแบบ Balance เท่านั้นเพื่อความปลอดภัย</td>
+</tr>
+</tbody>
+</table>
+<p><strong>เทคนิค DIY:</strong> ถ้าคุณใช้ <strong>TP4056</strong> ชาร์จ Li-Po แล้วรู้สึกว่าบอร์ดร้อนเกินไป ให้หาแผ่นซิงค์ (Heatsink) เล็กๆ มาแปะที่ตัวชิป หรือบัดกรีใต้บอร์ดติดกับระนาบกราวด์จะช่วยระบายความร้อนได้ดีขึ้นมากครับ</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../power_sources_li-ion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Li-ion 18650">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Li-ion 18650
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../power_sources_bms/" class="md-footer__link md-footer__link--next" aria-label="Next: BMS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                BMS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
